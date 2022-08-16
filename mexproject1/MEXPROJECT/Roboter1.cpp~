@@ -1,0 +1,50 @@
+// Autor: Evangelos Effraimoglou
+// File :Roboter 1 
+
+#include<iosstream>
+#include<string>
+#include "ServoMotor.hpp"
+#include "SerialCom.hpp"
+#include "Pololu.hpp"
+#include "Roboter1.hpp"
+
+
+
+void Roboter1::  moveRobot1(){
+
+  try{
+
+    ServoMotor Servo1(0,1500,0,&conn);
+    cout << "max. pos.:" << servo1.getMaxPosInAbs()<<endl;
+    cout << "min. pos.: " << servo1.getMinPosInAbs() <<endl;
+    cout << "get current pos.: <<servo1.getPositionInAbs() << endl;
+
+    servo1.setMinMaxDegree(-90,90);
+    
+    
+
+
+
+
+
+
+ 
+    
+	}catch(IException *e){
+		string msg("Der erste Roboter hat nicht die entsprechende Position bekommen");
+		msg += e->getMsg();
+
+  
+
+
+
+
+  };
+
+
+
+
+
+ 
+
+ 
