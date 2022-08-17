@@ -10,8 +10,9 @@
 #include <unistd.h> 
 
 
-void Roboter2::  move_servo_0(Pololu conn  ){
-
+void Roboter2::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
+  if(Uhrzeigersinn==true)
+  {
   try{
 
     ServoMotor Servo0(0,6000,2500,&conn);
@@ -30,6 +31,8 @@ void Roboter2::  move_servo_0(Pololu conn  ){
     cout << "max. pos.:" << Servo0.getMaxPosInAbs()<<endl;
     cout << "min. pos.: " << Servo0.getMinPosInAbs() <<endl;
     cout << "get current pos.:" <<Servo0.getPositionInAbs() << endl;
+  }
+	  else {
     
 sleep(5);
 
@@ -50,13 +53,16 @@ sleep(5);
   
 
   }
+  }
 
   return;
   };
 
 
-void Roboter2::  move_servo_1(Pololu conn  ){
+void Roboter2::  move_servo_1(Pololu conn, bool Uhrzeigersinn  ){
 
+if( Uhrzeigersinn== true)
+{
   try{
 
     ServoMotor Servo1(1,6000,0,&conn);
@@ -70,18 +76,25 @@ void Roboter2::  move_servo_1(Pololu conn  ){
 
  
     
-	}catch(IException *e){
+	}
+	
+}
+	else{
+		
+	catch(IException *e){
 		string msg("Der  Servo 1 des ersten Roboters  hat nicht die entsprechende Position bekommen");
 		msg += e->getMsg();
 
   
 
   }
-
+	}
   return ;
   };
 
-void Roboter1::  move_servo_2(Pololu conn  ){
+void Roboter1::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
+	
+	{
 
   try{
 
@@ -96,18 +109,24 @@ void Roboter1::  move_servo_2(Pololu conn  ){
 
  
     
-	}catch(IException *e){
+	}
+	}
+	else {
+	catch(IException *e){
 		string msg("Der  Servo 2 des ersten Roboters hat nicht die entsprechende Position bekommen");
 		msg += e->getMsg();
 
   
 
   }
+	}
   return ;
 
   };
 
-void Roboter2::  move_servo_3(Pololu conn  ){
+void Roboter2::  move_servo_3(Pololu conn, bool Uhrzeigersinn  ){
+	if(Uhrzeigersinn==true)
+	{
 
   try{
 
@@ -122,13 +141,17 @@ void Roboter2::  move_servo_3(Pololu conn  ){
 
  
     
-	}catch(IException *e){
+	}
+	}
+	else{
+	catch(IException *e){
 		string msg("Der Servo 3 hat nicht die entsprechende Position bekommen");
 		msg += e->getMsg();
 
   
 
   }
+	}
   return ;
 
   };
