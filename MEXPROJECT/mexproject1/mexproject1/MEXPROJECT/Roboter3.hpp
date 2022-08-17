@@ -14,7 +14,7 @@ public:
   
   void move_servo_3(Pololu conn, bool Uhrzeigersinn);
   
-  void set_move(
+  void set_move( unsigned short new Acceleration,unsigned short newSpeed, Pololu Conn);
   
 
 };
