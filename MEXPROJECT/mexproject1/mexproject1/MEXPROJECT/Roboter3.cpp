@@ -10,8 +10,10 @@
 #include <unistd.h> 
 
 
-void Roboter3::  move_servo_0(Pololu conn  ){
+void Roboter3::  move_servo_0(Pololu conn, bool Uhrzeigersinn  ){
 
+	if(Uhrzeigersinn==true)
+	{
   try{
 
     ServoMotor Servo0(0,6000,2500,&conn);
@@ -30,6 +32,17 @@ void Roboter3::  move_servo_0(Pololu conn  ){
     cout << "max. pos.:" << Servo0.getMaxPosInAbs()<<endl;
     cout << "min. pos.: " << Servo0.getMinPosInAbs() <<endl;
     cout << "get current pos.:" <<Servo0.getPositionInAbs() << endl;
+	  
+  }catch(IException *e){
+		string msg("Der  Servo 0 des 'ersten' Roboters hat nicht die entsprechende Position bekommen");
+		msg += e->getMsg();
+
+  
+
+  }
+	}
+	
+	else{
     
 sleep(5);
 
@@ -50,13 +63,15 @@ sleep(5);
   
 
   }
+}
 
   return;
   };
 
 
-void Roboter3::  move_servo_1(Pololu conn  ){
-
+void Roboter3::  move_servo_1(Pololu conn, bool Uhrzeigersinn  ){
+ if(Uhrzegersinn ==true)
+ {
   try{
 
     ServoMotor Servo1(1,6000,0,&conn);
@@ -77,12 +92,29 @@ void Roboter3::  move_servo_1(Pololu conn  ){
   
 
   }
+ }
+	else {
+		try{
+		ServoMo0tor Servo1(1,4000.0,&conn);
+	            cout << "max. pos.:" << Servo1.getMaxPosInAbs()<<endl;
+    cout << "min. pos.: " << Servo1.getMinPosInAbs() <<endl;
+    cout << "get current pos.:" <<Servo1.getPositionInAbs() << endl;
+
+    Servo1.setMinMaxDegree(-90,90);
+		}
+		catch( IException *e)
+		{string msg("Der  Servo 1 des ersten Roboters  hat nicht die entsprechende Position bekommen");
+		msg += e->getMsg();
+		}
+		         
+	}
 
   return ;
   };
 
-void Roboter1::  move_servo_2(Pololu conn  ){
-
+void Roboter1::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
+  if(Uhrzeigersinn==true)
+  {
   try{
 
     ServoMotor Servo2(2,6000,0,&conn);
@@ -100,15 +132,33 @@ void Roboter1::  move_servo_2(Pololu conn  ){
 		string msg("Der  Servo 2 des ersten Roboters hat nicht die entsprechende Position bekommen");
 		msg += e->getMsg();
 
-  
-
   }
+	  else{
+ try{
+
+    ServoMotor Servo2(2,4000,0,&conn);
+    cout << "max. pos.:" << Servo2.getMaxPosInAbs()<<endl;
+    cout << "min. pos.: " << Servo2.getMinPosInAbs() <<endl;
+    cout << "get current pos.:" <<Servo2.getPositionInAbs() << endl;
+
+    Servo2.setMinMaxDegree(-90,90);
+    
+
+
+ 
+    
+	}catch(IException *e){
+		string msg("Der  Servo 2 des ersten Roboters hat nicht die entsprechende Position bekommen");
+		msg += e->getMsg();
+  }
+	  }
   return ;
 
   };
 
-void Roboter3::  move_servo_3(Pololu conn  ){
-
+void Roboter3::  move_servo_3(Pololu conn,bool Uhrzeigersinn  ){
+if(Uhrzeigersinn==true)
+{
   try{
 
     ServoMotor Servo3(3,6000,0,&conn);
@@ -125,10 +175,30 @@ void Roboter3::  move_servo_3(Pololu conn  ){
 	}catch(IException *e){
 		string msg("Der Servo 3 hat nicht die entsprechende Position bekommen");
 		msg += e->getMsg();
-
+  }
   
 
   }
+	else{
+	
+	try{
+
+    ServoMotor Servo3(3,6000,0,&conn);
+    cout << "max. pos.:" << Servo3.getMaxPosInAbs()<<endl;
+    cout << "min. pos.: " << Servo3.getMinPosInAbs() <<endl;
+    cout << "get current pos.:" <<Servo3.getPositionInAbs() << endl;
+
+    Servo3.setMinMaxDegree(-90,90);
+    
+
+
+ 
+    
+	}catch(IException *e){
+		string msg("Der Servo 3 hat nicht die entsprechende Position bekommen");
+		msg += e->getMsg();
+  }
+	}
   return ;
 
   };
