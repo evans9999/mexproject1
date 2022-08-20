@@ -8,8 +8,9 @@
 #include "Pololu.hpp"
 #include "Roboter3.hpp"
 #include <unistd.h> 
-
-
+//**********************************************
+// ***********SERVO0****************************
+//**********************************************
 void Roboter3::  move_servo_0(Pololu conn, bool Uhrzeigersinn  ){
 
 	if(Uhrzeigersinn==true)
@@ -75,13 +76,17 @@ void Roboter3::  move_servo_0(Pololu conn, bool Uhrzeigersinn  ){
 
   return;
   };
-
+//********************************************************
+//********************* SERVO1****************************
+//********************************************************
 
 void Roboter3::  move_servo_1(Pololu conn, bool Uhrzeigersinn  ){
  if(Uhrzegersinn ==true)
  {
   try{
-
+//***********************************************************
+//*******************IM Uhrzeigersinn************************
+//***********************************************************
     ServoMotor Servo1(1,6000,0,&conn);
     cout << "max. pos.:" << Servo1.getMaxPosInAbs()<<endl;
     cout << "min. pos.: " << Servo1.getMinPosInAbs() <<endl;
@@ -105,6 +110,9 @@ void Roboter3::  move_servo_1(Pololu conn, bool Uhrzeigersinn  ){
     }// catch 
  }// if
 	else {
+		//***********************************************************
+		//*************************Gegen Uhrzeigersinn***************
+		//***********************************************************
 		try{
 		ServoMotor Servo1(1,4500.0,&conn);
 	            cout << "max. pos.:" << Servo1.getMaxPosInAbs()<<endl;
@@ -123,11 +131,17 @@ void Roboter3::  move_servo_1(Pololu conn, bool Uhrzeigersinn  ){
 
   return ;
   };
-
+//*********************************************
+//*****************SERVO2**********************
+//*********************************************
 void Roboter3::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
   if(Uhrzeigersinn==true)
   {
-  try{
+  //*********************************************
+  //**********Im Uhrzeigersinn*******************
+  //*********************************************
+ 
+    try{
 
     ServoMotor Servo2(2,6000,0,&conn);
     cout << "max. pos.:" << Servo2.getMaxPosInAbs()<<endl;
@@ -153,9 +167,10 @@ void Roboter3::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
     {
 
       try
-   {
-
-    ServoMotor Servo2(2,4000,0,&conn);
+   {  //******************************************
+     // *******Gegen Uhrzeigersinn****************
+     //*******************************************
+    ServoMotor Servo2(2,4500,0,&conn);
     cout << "max. pos.:" << Servo2.getMaxPosInAbs()<<endl;
     cout << "min. pos.: " << Servo2.getMinPosInAbs() <<endl;
     cout << "get current pos.:" <<Servo2.getPositionInAbs() << endl;
@@ -176,13 +191,17 @@ void Roboter3::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
   return ;
 
   };
-
+//********************************************************
+//*******************Servo3*******************************
+//*********************************************************
 void Roboter3::  move_servo_3(Pololu conn,bool Uhrzeigersinn  ){
 if(Uhrzeigersinn==true)
 {
   try
     {
-
+    //*****************************************************
+    //****************Im Uhrzeigersinn*********************
+    //*****************************************************
     ServoMotor Servo3(3,6000,0,&conn);
     cout << "max. pos.:" << Servo3.getMaxPosInAbs()<<endl;
     cout << "min. pos.: " << Servo3.getMinPosInAbs() <<endl;
@@ -207,11 +226,14 @@ if(Uhrzeigersinn==true)
    {
 	
      try{
-
-    ServoMotor Servo3(3,6000,0,&conn);
-    cout << "max. pos.:" << Servo3.getMaxPosInAbs()<<endl;
-    cout << "min. pos.: " << Servo3.getMinPosInAbs() <<endl;
-    cout << "get current pos.:" <<Servo3.getPositionInAbs() << endl;
+     
+	     //*********************************************
+	     // ****** gegen Uhrzeigersinn******************
+	     //*********************************************
+    ServoMotor bServo3(3,6000,0,&conn);
+    cout << "max. pos.:" << bServo3.getMaxPosInAbs()<<endl;
+    cout << "min. pos.: " << bServo3.getMinPosInAbs() <<endl;
+    cout << "get current pos.:" <<bServo3.getPositionInAbs() << endl;
 
     Servo3.setMinMaxDegree(-90,90);
     
@@ -231,11 +253,11 @@ if(Uhrzeigersinn==true)
   };
 
 
-void Roboter3:: set_Move(unsigned short newAcceleration, unsigned short newSpeed,Pololu conn)
+void Roboter3:: set_Move(int id,unsigned short newAcceleration, unsigned short newSpeed,Pololu conn)
 {
  try
    {
-  ServoMotor Servo0(0,6000,2500,&conn);
+  ServoMotor Servo(id,6000,2500,&conn);
 
   Servo0.setAcceleration(newAcceleration);
   Servo0.setSpeed(newSpeed);
