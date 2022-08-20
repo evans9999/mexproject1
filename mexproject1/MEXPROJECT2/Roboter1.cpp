@@ -8,8 +8,10 @@
 #include "Pololu.hpp"
 #include "Roboter1.hpp"
 #include <unistd.h> 
+//*********************************************
+//*****************SERVO0**********************
+//*********************************************
 
-//SERVO0
 void Roboter1::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
 // im Uhrzeigersinn Servo0
 
@@ -66,11 +68,14 @@ void Roboter1::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
   return;
   };
 
-// Servo1
-
+//*********************************************************
+// *******************Servo1*******************************
+//*********************************************************
 
   void Roboter1::  move_servo_1(Pololu conn, bool Uhrzeigersinn  ){
-// Im Uhrzeigersinn Drehung Servo1
+//******************************************************************
+// ******************Im Uhrzeigersinn Drehung Servo1****************
+//******************************************************************
 
     if(Uhrzeigersinn==true)
       {
@@ -114,13 +119,14 @@ void Roboter1::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
   return ;
   };
 
-
-// SERVO2 
-	
+//*************************************************
+// *********************SERVO2********************* 
+//*************************************************	
   void Roboter1::  move_servo_2(Pololu conn,bool Uhrzeigersinn  ){
 
-
-    // Im Uhrzeigersinn Drehung servo2
+    ************************************************************** 
+    //************** Im Uhrzeigersinn Drehung servo2**************
+    //************************************************************	    
     if(Uhrzeigersinn==true){
   try{
 
@@ -144,8 +150,11 @@ void Roboter1::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
  }
     }
     else{
-
-  // Gegen Uhrzeigersinn Drehung Servo2
+   //****************************************************************************
+  //********************** Gegen Uhrzeigersinn Drehung Servo2********************
+  //*****************************************************************************	    
+	    
+	    
 	try{
         
     ServoMotor bServo2(2,4000,0,&conn);
@@ -175,13 +184,18 @@ void Roboter1::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
 
   };
 
-// SERVO3
+//************************************* SERVO3*******************
+//***************************************************************
+//***************************************************************
   void Roboter1::  move_servo_3(Pololu conn,bool Uhrzeigersinn  ){
 
 
-    if(Uhrzeigersinn==true){
 
-  // Im UhrzeigerSinn  Drehung Servo3
+    if(Uhrzeigersinn==true){
+   //*****************************************************************
+  //*************** Im UhrzeigerSinn  Drehung Servo3******************
+  // *****************************************************************
+  
   try{
 
     ServoMotor Servo3(3,6000,0,&conn);
@@ -201,7 +215,10 @@ void Roboter1::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
   }
     }
     else{
-   // GegenUhrzeigersinn Drehung Servo3
+  
+     //*********************************************
+     //**** GegenUhrzeigersinn Drehung Servo3*******
+     //*********************************************
 	  
    try{
 
