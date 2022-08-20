@@ -9,7 +9,9 @@
 #include "Roboter2.hpp"
 #include <unistd.h> 
 
-
+// **********************************************************
+// *********************SERVO0*******************************
+//***********************************************************
 void Roboter2::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
   if(Uhrzeigersinn==true)
   {
@@ -83,8 +85,9 @@ void Roboter2::  move_servo_0(Pololu conn,bool Uhrzeigersinn  ){
 
   return;
   };
-
-
+//*********************************************
+// ***************SERVO1***********************
+//*********************************************
   
 void Roboter2::  move_servo_1 ( Pololu conn, bool Uhrzeigersinn  ){
 
@@ -135,7 +138,9 @@ if( Uhrzeigersinn== true)
 } //else
   return ;
 };  // function
-
+//************************************************************
+// *******************************SERVO2**********************
+//************************************************************
 void Roboter2::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
 	
   if (Uhrzeigersinn== true)
@@ -183,6 +188,9 @@ void Roboter2::  move_servo_2(Pololu conn, bool Uhrzeigersinn  ){
 
   };
 
+//  ***************************************
+//  ************SERVO3*********************
+//  ***************************************
 void Roboter2::  move_servo_3(Pololu conn, bool Uhrzeigersinn  ){
 	if(Uhrzeigersinn==true)
 	{
