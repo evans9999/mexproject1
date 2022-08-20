@@ -29,7 +29,16 @@ int main()
 	        robot1.move_servo_0(conn,true);
 	        	conn.closeConnection();
       
-
+               //  Frage nach der Position 
+	
+	       // Position korrigieren 
+	       // bewege servo0
+	       // bewege servo1
+	       // bewege servo2
+	       // bewege servo3
+	
+               // bewege roboter zurück 
+	       // abfrage ob position passt 
 
 					       	// Roboter2  
 
