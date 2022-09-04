@@ -139,7 +139,22 @@ void Roboter1::  move_servo_3(Pololu conn, int degree ){
 
   };
 
+void Roboter1:: set_Move(int id,unsigned short newAcceleration, unsigned short newSpeed,Pololu conn)
+{
+ 	try
+   	{
+  		ServoMotor Servo(id,6000,2500,&conn);
 
+  		Servo.setAcceleration(newAcceleration);
+  		Servo.setSpeed(newSpeed);
+   	}
+ 
+ 	catch(IException *e)
+   	{	string msg("Der Servo 3 hat nicht die entsprechende Position bekommen");
+		msg += e->getMsg();
+   	}
+ 		return;
+}
 
 
 
