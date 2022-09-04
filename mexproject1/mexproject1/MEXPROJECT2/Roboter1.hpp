@@ -13,7 +13,8 @@ public:
   void move_servo_2(Pololu conn, bool Uhrzeigersinn);
   
   void move_servo_3(Pololu conn,bool Uhrzeigersinn);
-  
+  void set_Move(int id,unsigned short newAcceleration, unsigned short newSpeed,Pololu conn);
+
 
 };
 
