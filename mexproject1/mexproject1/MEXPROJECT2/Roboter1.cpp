@@ -142,19 +142,47 @@ void Roboter1::  move_servo_3(Pololu conn, int degree ){
 void Roboter1:: set_Move(int id,unsigned short newAcceleration, unsigned short newSpeed,Pololu conn)
 {
  	try
-   	{
-  		ServoMotor Servo(id,6000,2500,&conn);
+   	{      int neutral;
+	       int delta;
+	 
+              if(id==0)
+	      {  neutral=6000;
+	          delta=4500;
+	      }
+	      if( id==1)
+	      {
+		  neutral=6000;
+		  delta=4500;
+	      }
+	      if(id==2)
+	      {
+		  neutral=6000;
+		  deltra=4500;
+	      }
+	      if(id==3)
+	      {
+		  neutral=6000;
+		  delta=2000;
+	      }
+	      if( neutral<=4000 ||neutral>=7500)
+	      {
+		    cout<<"Die neutrale Position ueberschreitet die Grenzen";
+	      }
+	 
+  		ServoMotor Servo(id,neutral,delta,&conn);
 
   		Servo.setAcceleration(newAcceleration);
   		Servo.setSpeed(newSpeed);
    	}
  
  	catch(IException *e)
-   	{	string msg("Der Servo 3 hat nicht die entsprechende Position bekommen");
+   	{	string msg(" Die Einstellung der Geschwindigkeit und der Beschleunigung ist nicht möglich);
 		msg += e->getMsg();
    	}
  		return;
-}
+
+
+ };
 
 
 
